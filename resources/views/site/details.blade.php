@@ -10,6 +10,10 @@
         <div class="col s12 m5">
             <h1> {{  $produto->nome  }} </h1>
             <p> {{ $produto->descricao }} </p>
+            <p> 
+                Postado por: {{ $produto->user->first_name }} 
+                Categoria: {{ $produto->categoria->nome }}
+            </p>
             <button class="btn orange btn-large">Comprar</button>
         </div>
     </div>
