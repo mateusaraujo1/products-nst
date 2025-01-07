@@ -16,7 +16,7 @@
                     <div class="card-image">
                         <img src="{{$produto->imagem}}">
                         <span class="card-title">{{ $produto->nome }}</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="{{ route('site.details', $produto->slug) }}"><i class="material-icons">visibility</i></a>
                     </div>
 
                     <div class="card-content">
