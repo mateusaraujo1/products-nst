@@ -31,6 +31,10 @@
 
         @endforeach
 
+        <div class="row center">
+            {{ $produtos->links('custom.pagination') }}
+        </div>
+
         
     </div>
     
