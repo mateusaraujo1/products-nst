@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+    
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
