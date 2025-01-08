@@ -5,7 +5,7 @@
 
 @section('conteudo')
 
-    <h3>Categoria:</h3>
+    <h5>Categoria: {{ $categoria->nome }}</h5>
 
     <div class="row container">
 
