@@ -20,4 +20,12 @@ class SiteController extends Controller
 
         return view('site.details', compact('produto'));
     }
+
+    public function categoria($id) {
+
+        $produtos = Produto::where('id_categoria', $id)->paginate(3);
+        // all trás todos os registros, usa-se get quando se tem alguma condição
+
+        return view('site.categoria', compact('produtos'));
+    }
 }

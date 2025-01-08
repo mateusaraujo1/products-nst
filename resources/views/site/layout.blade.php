@@ -20,7 +20,7 @@
     
     @foreach ($categoriasMenu as $categoria)
 
-      <li><a href="#!">{{$categoria->nome}}</a></li>
+      <li><a href="{{ route('site.categoria', $categoria->id) }}">{{$categoria->nome}}</a></li>
         
     @endforeach
     
