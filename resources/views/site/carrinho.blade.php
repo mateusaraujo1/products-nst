@@ -17,7 +17,18 @@
         </div>
           
       @endif
+      
+      @if ($itens->count() == 0)
 
+      <div class="card orange">
+        <div class="card-content white-text">
+          <span class="card-title">Seu carrinho está vazio!</span>
+          <p>Aproveite as nossas promoções</p>
+        </div>
+      </div>
+      
+      @else
+      
       <h5>Seu carrinho possui: {{ $itens->count() }} produtos </h5>
 
         <table class="striped">
@@ -46,7 +57,7 @@
                   <form action="{{ route('site.atualizacarrinho') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" value="{{ $item->id }}" name="id">
-                    <input style="width: 40px; font-weight: 900" class="white center" type="number" name="quantity" value="{{$item->quantity}}">
+                    <input style="width: 40px; font-weight: 900" class="white center" type="number" name="quantity" min="1" value="{{$item->quantity}}">
                     <button class="btn-floating waves-effect waves-light orange"><i class="material-icons">refresh</i></a>
 
                   </form>
@@ -75,8 +86,18 @@
             </tbody>
           </table>
 
+          <h5>Valor total:  </h5>
+
+          <div class="card green">
+            <div class="card-content white-text">
+              <span class="card-title">R${{number_format(\Cart::getTotal(), 2, ',', '.')}}</span>
+            </div>
+          </div>
+
+          @endif
+
         <div class="row container center">
-          <button class="btn waves-effect waves-light blue">Continuar comprando <i class="material-icons right">arrow_back</i></a> </td>
+          <a href="{{ route('site.index') }}" class="btn waves-effect waves-light blue">Continuar comprando <i class="material-icons right">arrow_back</i></a> </td>
           <a href="{{ route('site.limparcarrinho') }}" class="btn waves-effect waves-light blue">Limpar carrinho <i class="material-icons right">clear</i></a> </td>
           <button class="btn waves-effect waves-light green">Finalizar pedido <i class="material-icons right">check</i></a> </td>
         </div>
