@@ -38,15 +38,33 @@
                 <td><img src="{{$item->attributes->image}}" alt="" width="70px" class="responsive-img circle"></td>
                 <td>{{$item->name}}</td>
                 <td>R${{  number_format($item->price, 2, ',', '.')  }}</td>
-                <td><input style="width: 40px; font-weight: 900" class="white center" type="number" name="quantity" value="{{$item->quantity}}"></td>
-                <td> 
 
-                  <button class="btn-floating waves-effect waves-light orange"><i class="material-icons">refresh</i></a>
+                {{-- BTN ATUALIZAR --}}
 
-                  <form action="{{ route('site.removecarrinho') }}" method="POST" enctype="multipart/form-data">
+                <td>
+
+                  <form action="{{ route('site.atualizacarrinho') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" value="{{ $item->id }}" name="id">
+                    <input style="width: 40px; font-weight: 900" class="white center" type="number" name="quantity" value="{{$item->quantity}}">
+                    <button class="btn-floating waves-effect waves-light orange"><i class="material-icons">refresh</i></a>
+
+                  </form>
+
+                </td>
+
+                <td> 
+
+                  
+                  {{-- BTN REMOVER --}}
+
+                  <form action="{{ route('site.removecarrinho') }}" method="POST" enctype="multipart/form-data">
+
+                    @csrf
+                    <input type="hidden" value="{{ $item->id }}" name="id">
+
                     <button class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a> 
+
                   </form>
 
                 </td>
