@@ -77,7 +77,7 @@
 
         <div class="row container center">
           <button class="btn waves-effect waves-light blue">Continuar comprando <i class="material-icons right">arrow_back</i></a> </td>
-          <button class="btn waves-effect waves-light blue">Limpar carrinho <i class="material-icons right">clear</i></a> </td>
+          <a href="{{ route('site.limparcarrinho') }}" class="btn waves-effect waves-light blue">Limpar carrinho <i class="material-icons right">clear</i></a> </td>
           <button class="btn waves-effect waves-light green">Finalizar pedido <i class="material-icons right">check</i></a> </td>
         </div>
 
