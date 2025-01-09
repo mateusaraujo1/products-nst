@@ -12,7 +12,6 @@
 
         <div class="card green">
           <div class="card-content white-text">
-            <span class="card-title">Parabéns!</span>
             <p>{{ $mensagem }}</p>
           </div>
         </div>
@@ -41,8 +40,15 @@
                 <td>R${{  number_format($item->price, 2, ',', '.')  }}</td>
                 <td><input style="width: 40px; font-weight: 900" class="white center" type="number" name="quantity" value="{{$item->quantity}}"></td>
                 <td> 
+
                   <button class="btn-floating waves-effect waves-light orange"><i class="material-icons">refresh</i></a>
-                  <button class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a> 
+
+                  <form action="{{ route('site.removecarrinho') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="{{ $item->id }}" name="id">
+                    <button class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a> 
+                  </form>
+
                 </td>
               </tr>
               
